@@ -1,0 +1,49 @@
+<div class="d-flex fd-column px-4">
+  <div class="">
+    <app-navbar></app-navbar>
+  </div>
+
+
+  <div class="container mt-7 h-100">
+    <div class="row g-0">
+      <div class="card col-md-6 m-auto">
+        <div class="card-header">
+          <h1 class="card__login-header">
+            Login
+          </h1>
+        </div>
+        <div class="card-body">
+          <div class="row card-body-section">
+            <form action="" [formGroup]="form" (submit)="validateUser()">
+              <div class="d-flex fd-column h-100 w-100">
+
+                <div class="row">
+                  <p class="login__title" >Bienvenido al gestor de proyectos!</p>
+                </div>
+                <div class="row">
+                  <p class="login__sub-title" >Necesitamos tu usuario y contraseña</p>
+                </div>
+
+
+                <div class="row mt-4">
+                  <label for="">Usuario</label>
+                  <input class="login__input w-100" placeholder="Nombre usuario ej: nombre apellido" formControlName="user">
+                </div>
+
+                <div class="row mt-3">
+                  <label for="">Contraseña</label>
+                  <input class="login__input w-100" placeholder="Aqui va tu contraseña" formControlName="password">
+                </div>
+
+                <div class="row mt-3 w-100 login__container-button">
+                  <button class="login__button" type="submit">Ingresar</button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

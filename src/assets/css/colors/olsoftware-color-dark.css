@@ -1,0 +1,23 @@
+
+
+:root {
+	/* Palette primary */
+	--pu-purple: #0C0560;
+	--pu-green: #00F3CB;
+	--pu-blue: #007BFF;
+	/* Palette secundary */
+	--pu-yellow: #edc400;
+	--pu-color-font: #0F0F54;
+	/* Palette neutral */
+	--pu-white: #ffffff;
+	--pu-light: #f3f3f3;
+	--pu-grey: #ced4da;
+	/* Fonts */
+	--pu-font: 'Poppins', Arial, sans-serif;
+	/* Transitions */
+	--pu-fx: all 0.3s ease-in-out;
+  --shadow-color: rgba(0, 0, 0, .2);
+}
+
+
+
