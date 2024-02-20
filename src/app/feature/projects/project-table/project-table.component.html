@@ -3,8 +3,12 @@
     <app-navbar></app-navbar>
   </div>
 
+  <div class="project__button-create row mt-7 w-100">
+    <button class="project__button" type="button">Nuevo Proyecto</button>
+  </div>
 
-  <mat-form-field appearance="standard" class="mt-7">
+
+  <mat-form-field appearance="standard" class="mt-3">
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
   </mat-form-field>
@@ -45,13 +49,13 @@
       <!-- CI -->
       <ng-container matColumnDef="ci">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> CI </th>
-        <td mat-cell *matCellDef="let row"> {{row.ci}} </td>
+        <td mat-cell *matCellDef="let row" [ngClass]="(row.ci === true)?'color__green':'color__black'">{{row.ci}} </td>
       </ng-container>
 
       <!-- DC -->
       <ng-container matColumnDef="cd">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> CD </th>
-        <td mat-cell *matCellDef="let row"> {{row.cd}} </td>
+        <td mat-cell *matCellDef="let row" [ngClass]="(row.cd === true)?'color__green':'color__black'"> {{row.cd}} </td>
       </ng-container>
 
       <!-- Frontend -->
@@ -75,13 +79,13 @@
       <!-- Alertas -->
       <ng-container matColumnDef="alertas">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Alertas </th>
-        <td mat-cell *matCellDef="let row"> {{row.warning_count}} </td>
+        <td mat-cell *matCellDef="let row" [ngClass]="(row.warning_count > 1)?'color__red':'color__green'"> {{row.warning_count}} </td>
       </ng-container>
 
       <!-- Errores -->
       <ng-container matColumnDef="errores">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Errores </th>
-        <td mat-cell *matCellDef="let row"> {{row.errors_count}} </td>
+        <td mat-cell *matCellDef="let row" [ngClass]="(row.errors_count > 1)?'color__red':'color__green'"> {{row.errors_count}} </td>
       </ng-container>
 
       <!-- Cant. Despliegues -->
@@ -106,13 +110,23 @@
       <!-- Status -->
       <ng-container matColumnDef="status">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
-        <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+        <td mat-cell *matCellDef="let row" [ngClass]="(row.status === 'En Desarrollo')?'color__yellow':'color__green'"> {{row.status}} </td>
       </ng-container>
 
-      <!-- Status -->
+      <!-- Actions -->
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
-        <td mat-cell *matCellDef="let row"> {{row.fruit}} </td>
+        <td mat-cell *matCellDef="let row">
+          <div class="project__container-button">
+            <button class="project__button-container" type="button" rel="tooltip" title="Edit Project" (click)="editProject(row)">
+              <img  src="../../../../assets/icons/editar-texto.png" alt="Icon edit">
+            </button>
+
+            <button class="project__button-container " type="button" rel="tooltip" title="Delete Project"  (click)="deleteProject(row)">
+              <img  src="../../../../assets/icons/eliminar.png" alt="Icon delete">
+            </button>
+          </div>
+      </td>
       </ng-container>
 
 
@@ -125,6 +139,6 @@
       </tr>
     </table>
 
-    <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator> -->
+    <mat-paginator [pageSizeOptions]="[10, 20, 30, 50, 100]" aria-label="Select page of users"></mat-paginator>
   </div>
 </div>

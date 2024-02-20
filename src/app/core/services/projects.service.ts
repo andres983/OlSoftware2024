@@ -8,10 +8,15 @@ import { Observable } from 'rxjs';
 })
 export class ProjectsService {
   private apiUrl = 'http://localhost:3000/projects';
+  private dltProject = ' http://localhost:3000/projects/';
 
   constructor(private http: HttpClient) { }
 
   getProjects(): Observable<IProject[]> {
     return this.http.get<IProject[]>(`${this.apiUrl}`);
+  }
+
+  deleteProject(id: number): Observable<IProject> {
+    return this.http.delete<IProject>(`${this.dltProject}${id}`);
   }
 }

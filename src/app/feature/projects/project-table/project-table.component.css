@@ -23,8 +23,10 @@ th:last-child {
   border-left: var(--pu-blue) !important;
 }
 
-/* COM Tamaño de columnas hasta 999px ******************* */
 
+.mat-row:nth-child(odd) {
+  background: var(--pu-ligth-grey);
+}
 
 .mat-column-id {
   flex: 3rem;
@@ -73,4 +75,84 @@ th:last-child {
   -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
+}
+
+.color__green {
+  color: green;
+  font-family: var(--pu-font);
+  font-weight: 400;
+}
+
+.color__red {
+  color: red;
+}
+
+.color__black {
+  color: black;
+}
+
+.color__yellow {
+  color: black;
+  font-family: var(--pu-font);
+  font-weight: 400;
+  background-color: var(--pu-yellow);
+
+}
+
+.project__button-create {
+  height: 60px;
+  max-height: 60px;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+
+}
+
+.project__button{
+  background-color: var(--pu-blue);
+  color: var(--pu-white);
+  font-family: var(--pu-font);
+  font-weight: 300;
+  border: none;
+  border-color: var(--pu-blue);
+  width: 40%;
+  height: 40px;
+  border-radius: 3rem;
+  -webkit-border-radius: 3rem;
+  -moz-border-radius: 3rem;
+  -ms-border-radius: 3rem;
+  -o-border-radius: 3rem;
+}
+.project__button:hover{
+  background-color: var(--pu-green);
+  color: var(--pu-color-font);
+
+}
+
+.tablaMensajes__boton {
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.project__button-container:nth-child(1) {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.project__button-container {
+  border: none;
+  border-color: transparent;
+}
+
+@media screen and (min-width: 768px) {
+  .project__button{
+    width: 20%;
+    font-size: 1.2rem;
+
+  }
 }

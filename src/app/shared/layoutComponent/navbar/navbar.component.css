@@ -115,7 +115,7 @@ a {
 
 
 .header.sticky .navbar a.active::before {
-  background-color: var(--pu-white);
+  background-color: var(--pu-green);
 }
 
 .header__contenedorLink {
@@ -327,7 +327,7 @@ a {
 .main-menu__link::after {
   content: '';
   position: absolute;
-  background-color: var(--pu-white);
+  background-color: var(--pu-green);
   height: 3px;
   width: 0;
   left: 0;
