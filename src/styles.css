@@ -1141,3 +1141,19 @@
     font-family: var(--pu-font);
     font-weight: 300;
   }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* Angular Material */
+
+tr.mat-header-row{
+  background-color: var(--pu-blue) !important;
+
+}
+th.mat-header-cell {
+  color: var(--pu-white) !important;
+  font-family: var(--pu-font);
+font-size: 0.9rem;
+}

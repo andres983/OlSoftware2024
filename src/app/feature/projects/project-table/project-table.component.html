@@ -1,0 +1,130 @@
+<div class="d-flex fd-column px-4">
+  <div class="">
+    <app-navbar></app-navbar>
+  </div>
+
+
+  <mat-form-field appearance="standard" class="mt-7">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+
+      <!-- Proyecto -->
+      <ng-container matColumnDef="proyecto">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Proyecto </th>
+        <td mat-cell *matCellDef="let row"> {{row.project_name}}% </td>
+      </ng-container>
+
+      <!-- Cliente -->
+      <ng-container matColumnDef="cliente">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cliente </th>
+        <td mat-cell *matCellDef="let row"> {{row.client}} </td>
+      </ng-container>
+
+      <!-- Repositorio -->
+      <ng-container matColumnDef="repositorio">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Repositorio </th>
+        <td mat-cell *matCellDef="let row"> {{row.repo_url}} </td>
+      </ng-container>
+
+      <!-- Desarrolladores  -->
+      <ng-container matColumnDef="desarrolladores">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Desarrolladores </th>
+        <td mat-cell *matCellDef="let row"> {{row.developers}} </td>
+      </ng-container>
+
+      <!-- CI -->
+      <ng-container matColumnDef="ci">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> CI </th>
+        <td mat-cell *matCellDef="let row"> {{row.ci}} </td>
+      </ng-container>
+
+      <!-- DC -->
+      <ng-container matColumnDef="cd">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> CD </th>
+        <td mat-cell *matCellDef="let row"> {{row.cd}} </td>
+      </ng-container>
+
+      <!-- Frontend -->
+      <ng-container matColumnDef="frontend">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Frontend </th>
+        <td mat-cell *matCellDef="let row"> {{row.frontend_tecnology        }} </td>
+      </ng-container>
+
+      <!-- Backend -->
+      <ng-container matColumnDef="backend">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Backend </th>
+        <td mat-cell *matCellDef="let row"> {{row.backend_tecnology}} </td>
+      </ng-container>
+
+      <!-- DB -->
+      <ng-container matColumnDef="db">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> DB </th>
+        <td mat-cell *matCellDef="let row"> {{row.databases}} </td>
+      </ng-container>
+
+      <!-- Alertas -->
+      <ng-container matColumnDef="alertas">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Alertas </th>
+        <td mat-cell *matCellDef="let row"> {{row.warning_count}} </td>
+      </ng-container>
+
+      <!-- Errores -->
+      <ng-container matColumnDef="errores">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Errores </th>
+        <td mat-cell *matCellDef="let row"> {{row.errors_count}} </td>
+      </ng-container>
+
+      <!-- Cant. Despliegues -->
+      <ng-container matColumnDef="despliegues">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cant. Despliegues </th>
+        <td mat-cell *matCellDef="let row"> {{row.deploy_count}} </td>
+      </ng-container>
+
+      <!-- Avance -->
+      <ng-container matColumnDef="avance">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Avance </th>
+        <td mat-cell *matCellDef="let row"> {{row.percentage_completion}} </td>
+      </ng-container>
+
+
+      <!-- Reporte NCs -->
+      <ng-container matColumnDef="reporte">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Reporte NCs </th>
+        <td mat-cell *matCellDef="let row"> {{row.report_nc}} </td>
+      </ng-container>
+
+      <!-- Status -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+        <td mat-cell *matCellDef="let row"> {{row.status}} </td>
+      </ng-container>
+
+      <!-- Status -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+        <td mat-cell *matCellDef="let row"> {{row.fruit}} </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator> -->
+  </div>
+</div>

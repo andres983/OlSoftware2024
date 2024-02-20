@@ -2,12 +2,14 @@
 
 :root {
 	/* Palette primary */
-	--pu-purple: #0C0560;
+	--pu-purple: #13137F;
 	--pu-green: #00F3CB;
 	--pu-blue: #007BFF;
 	/* Palette secundary */
 	--pu-yellow: #edc400;
 	--pu-color-font: #0F0F54;
+  --pu-ligth-blue:#D2ECFF;
+  --pu-pink:#FF4C2A;
 	/* Palette neutral */
 	--pu-white: #ffffff;
 	--pu-light: #f3f3f3;

@@ -8,6 +8,9 @@ const routes: Routes = [
   },
   {
     path: 'dashboard', loadChildren: () => import('./feature/dashboard/dashboard.module').then(mod => mod.DashboardModule)
+  },
+  {
+    path: 'projects', loadChildren: () => import('./feature/projects/projects.module').then(mod => mod.ProjectsModule)
   }
 
 ];

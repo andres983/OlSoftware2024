@@ -1,1 +1,50 @@
-<app-navbar></app-navbar>
+<div class="d-flex fd-column px-4">
+  <div class="">
+    <app-navbar></app-navbar>
+  </div>
+
+
+  <div class="container mt-7 h-100">
+    <div class="row g-0">
+      <div class="card col-md-12 m-auto">
+        <div class="card-header">
+          <h2 class="card__dashboard-header">
+            Binvenido Andres Ibarra
+          </h2>
+        </div>
+        <div class="card-body">
+          <div class="row card-body-section">
+            <div class="dashboard__image-and-cards ">
+              <div class="dashboard__image-container w-100">
+                <h2>{{city}} is {{weather}}</h2>
+                <img [src]="pathImg" class="mt-3" alt="image of weatther">
+              </div>
+              <div class="dashboard__cards-container w-100 mt-3 ">
+                <div class="dashboard__card dashboard__card--uno p-1">
+                  <label>Proyectos Registrados</label>
+                  <h3 class="dashboard__value mt-3">{{projects}}</h3>
+                  <p class="dashboard__label">Ultimo proyecto registrado hace 15 dias</p>
+                </div>
+                <div class="dashboard__card dashboard__card--dos p-1">
+                  <label>Proyectos de desarrollo</label>
+                  <h3 class="dashboard__value mt-3">{{projectsDev}}</h3>
+                  <p class="dashboard__label">Total  de avance 22.00%</p>
+                </div>
+                <div class="dashboard__card dashboard__card--tres p-1">
+                  <label>NC´s sin resolver</label>
+                  <h3 class="dashboard__value mt-3">{{pedingNc}}</h3>
+                  <p class="dashboard__label">Ultima NC registrado hace un dia</p>
+                </div>
+                <div class="dashboard__card dashboard__card--cuatro p-1">
+                  <label>Cantidad de errores</label>
+                  <h3 class="dashboard__value mt-3">{{errorsDeploy}}</h3>
+                  <p class="dashboard__label">Ultimo error hace dos horas</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
