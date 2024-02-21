@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/core/services/user.service';
 import { IUser } from '../../../core/data/IUser';
 import { SweetAlertService } from '../../../core/services/sweet-alert.service';
-import { Route, Router } from '@angular/router';
+import {Router } from '@angular/router';
+import { SubSink } from 'subsink';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
   public form: FormGroup = new FormGroup({});
+  private subs = new SubSink();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -55,7 +58,7 @@ export class LoginComponent implements OnInit {
       password: this.fieldPassword?.value
     }
 
-    this.userServices.login(userLogin.user, userLogin.password).subscribe({
+    this.subs.add(this.userServices.login(userLogin.user, userLogin.password).subscribe({
       next: (data: IUser[]) => {
         if (data.length === 0) {
           this.sweetAlertServices.sweetAlertInformativo('Credenciales no validas');
@@ -66,9 +69,11 @@ export class LoginComponent implements OnInit {
 
         }
       }
-    })
+    }))
+  }
 
-
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 
 }

@@ -1101,14 +1101,14 @@
   }
 
   .card-body-section {
-    padding: 20px 10px;
+    padding: 5px 10px 10px 10px;
     border: 2px solid var(--pu-gray);
     border-radius: 6px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     -ms-border-radius: 6px;
     -o-border-radius: 6px;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 
   .card-footer {

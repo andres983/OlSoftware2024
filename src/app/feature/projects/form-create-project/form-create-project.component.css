@@ -1,0 +1,58 @@
+.create__input {
+  padding: 0 0.5rem;
+}
+
+
+.input__label {
+  font-family: var(--pu-font);
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.input__field {
+  background-color: var(--pu-white);
+  height: 35px;
+  min-height: 35px;
+  max-height: 35px;
+  border: 1px solid var(--pu-grey);
+  font-family: var(--pu-font);
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+
+::placeholder {
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.create__button {
+  background-color: var(--pu-blue);
+  color: var(--pu-white);
+  font-family: var(--pu-font);
+  font-weight: 300;
+  border: none;
+  border-color: var(--pu-blue);
+  width: 40%;
+  height: 40px;
+  border-radius: 3rem;
+  -webkit-border-radius: 3rem;
+  -moz-border-radius: 3rem;
+  -ms-border-radius: 3rem;
+  -o-border-radius: 3rem;
+}
+
+
+@media screen and (min-width: 768px) {
+  .input__label {
+    font-size: 0.9rem;
+  }
+
+  .input__container {
+    height: 80px;
+  }
+
+  .create__button {
+    width: 25%;
+  }
+}

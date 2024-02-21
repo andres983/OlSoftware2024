@@ -1,21 +1,27 @@
-import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, OnInit, OnDestroy } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { IProject } from '../../../core/data/IProject';
 import { ProjectsService } from '../../../core/services/projects.service';
 import { SweetAlertService } from '../../../core/services/sweet-alert.service';
-
+import { SubSink } from 'subsink';
 
 @Component({
   selector: 'app-project-table',
   templateUrl: './project-table.component.html',
   styleUrls: ['./project-table.component.css']
 })
-export class ProjectTableComponent implements OnInit, AfterViewInit {
+export class ProjectTableComponent implements OnInit, AfterViewInit, OnDestroy {
+
+  public isVisibilityForm: boolean = false;
+  public isVisibilityButtonCreate: boolean = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+  private subs = new SubSink();
+  public isTokenEmpty: boolean = true;
 
   displayedColumns: string[] = [
     'id',
@@ -47,6 +53,7 @@ export class ProjectTableComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.validateToken();
     this.getProjects().then((data: IProject[]) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
@@ -59,27 +66,33 @@ export class ProjectTableComponent implements OnInit, AfterViewInit {
 
   public getProjects(): Promise<IProject[]> {
     return new Promise((resolve, reject) => {
-
-      this.projectsService.getProjects().subscribe({
+      this.subs.add(this.projectsService.getProjects().subscribe({
         next: (data: IProject[]) => {
           resolve(data);
         }
       })
+      )
     })
+  }
+
+  validateToken(): void {
+    const token = localStorage.getItem('token');
+
+    if (token === '1') {
+      this.isVisibilityButtonCreate = true;
+    }
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource!.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource!.paginator) {
       this.dataSource!.paginator.firstPage();
     }
   }
 
-  public editProject(row: IProject) {
-
-
+  public visibilityForm(): void {
+    this.isVisibilityForm = !this.isVisibilityForm;
   }
 
 
@@ -89,7 +102,7 @@ export class ProjectTableComponent implements OnInit, AfterViewInit {
     this.sweetAlertServices.sweetAlertAccionBoton(message).then((result: boolean) => {
       if (result === true) {
 
-        this.projectsService.deleteProject(+row.id).subscribe({
+        this.subs.add(this.projectsService.deleteProject(+row.id).subscribe({
           next: (data: IProject) => {
             if (data) {
               this.sweetAlertServices.sweetAlertInformativo(messageExit);
@@ -97,8 +110,13 @@ export class ProjectTableComponent implements OnInit, AfterViewInit {
             }
           }
         })
+        )
       }
     })
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 
 }

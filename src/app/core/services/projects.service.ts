@@ -19,4 +19,9 @@ export class ProjectsService {
   deleteProject(id: number): Observable<IProject> {
     return this.http.delete<IProject>(`${this.dltProject}${id}`);
   }
+
+  createProject(data: IProject): Observable<IProject> {
+    return this.http.post<IProject>(`${this.dltProject}`, data);
+  }
 }
+

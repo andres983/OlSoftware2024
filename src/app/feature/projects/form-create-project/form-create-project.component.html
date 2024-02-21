@@ -1,0 +1,104 @@
+<div class="create">
+  <div class="container py-3 h-100">
+    <div class="row g-0">
+      <div class="card col-md-12 m-auto">
+        <div class="card-header">
+          <h2 class="create__headerCard">
+           Crea tu proyecto
+          </h2>
+        </div>
+        <div class="card-body">
+          <form action="" [formGroup]="form" (submit)="createPorject()">
+            <div class="row card-body-section ">
+
+              <div class="col-md-4">
+                <div class="create__input mt-3">
+                  <label class="input__label" for="">ID</label>
+                  <input class="input__field w-100" placeholder="Aquí va tu ID" formControlName="id">
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="create__input mt-3">
+                  <label class="input__label" for="">Proyecto</label>
+                  <input class="input__field w-100" placeholder="Aquí va el nombre del proyecto" formControlName="project_name">
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="create__input mt-3">
+                  <label class="input__label" for="">Repositorio</label>
+                  <input class="input__field w-100" placeholder="Aquí va la URL de tu repositorioa" formControlName="repo_url">
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="create__input mt-3">
+                  <label class="input__label" for="">Integración continua</label>
+                  <select class="input__field w-100" formControlName="ci">
+                    <option value="false">False</option>
+                    <option value="true">True</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="create__input mt-3">
+                  <label class="input__label" for="">Despliegue continuo</label>
+                  <select class="input__field w-100" formControlName="cd">
+                    <option value="false">False</option>
+                    <option value="true">True</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="create__input mt-3">
+                  <label class="input__label" for="">Cliente</label>
+                  <input class="input__field w-100" placeholder="Aquí va nombre cliente" formControlName="client">
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="create__input mt-3">
+                  <label class="input__label" for="">Desarrolladores</label>
+                  <input class="input__field w-100" placeholder="Aquí van los nombres" formControlName="developers">
+                </div>
+              </div>
+
+
+              <div class="col-md-4">
+                <div class="create__input mt-3">
+                  <label class="input__label" for="">Tecnologia Frontend</label>
+                  <input class="input__field w-100" placeholder="Aquí va la tecnología a aplicar" formControlName="frontend_tecnology">
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="create__input mt-3">
+                  <label class="input__label" for="">Tecnologia Backend</label>
+                  <input class="input__field w-100" placeholder="Aquí va la tecnología a aplicar" formControlName="backend_tecnology">
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="create__input mt-3">
+                  <label class="input__label" for="">Base de datos</label>
+                  <input class="input__field w-100" placeholder="¿Que base de datos usa?" formControlName="databases">
+                </div>
+              </div>
+            </div>
+
+            <div class="create__boton  pe-3 d-flex align-item-center justify-content-end " >
+              <button class="create__button" type="submit">Registrar</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

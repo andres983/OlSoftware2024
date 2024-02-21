@@ -45,16 +45,26 @@ export class NavbarComponent implements OnInit {
 
   validateToken(): void {
     const token = localStorage.getItem('token');
-
     if (token !== null) {
       this.isTokenEmpty = false;
     }
-
   }
 
   public cerrarMenu(): void {
     this.rendere.addClass(this.mydiv.nativeElement, 'main-menu--show');
     this.contador = 1;
   }
+
+  public goDashboard() {
+    this.router.navigateByUrl('/dashboard');
+  }
+  public goProjects() {
+    this.router.navigateByUrl('/projects');
+  }
+  public logout() {
+    localStorage.removeItem('token');
+    this.router.navigateByUrl('/login');
+  }
+
 
 }

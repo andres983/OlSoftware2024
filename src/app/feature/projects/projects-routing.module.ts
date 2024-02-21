@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeProjectsComponent } from './home-projects/home-projects.component';
 import { ProjectTableComponent } from './project-table/project-table.component';
+import { FormCreateProjectComponent } from './form-create-project/form-create-project.component';
 
 const routes: Routes = [
   {
@@ -9,6 +10,7 @@ const routes: Routes = [
     component: HomeProjectsComponent,
     children: [
       { path: '', component: ProjectTableComponent },
+      { path: 'form', component: FormCreateProjectComponent },
 
     ]
   }

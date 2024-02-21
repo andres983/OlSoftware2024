@@ -9,11 +9,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { SharedModule } from '../../shared/shared.module';
+import { FormCreateProjectComponent } from './form-create-project/form-create-project.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     HomeProjectsComponent,
-    ProjectTableComponent
+    ProjectTableComponent,
+    FormCreateProjectComponent
   ],
   imports: [
     CommonModule,
@@ -22,11 +25,13 @@ import { SharedModule } from '../../shared/shared.module';
     MatPaginatorModule,
     MatInputModule,
     MatTableModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   exports: [
     HomeProjectsComponent,
-    ProjectTableComponent
+    ProjectTableComponent,
+    FormCreateProjectComponent
   ]
 })
 export class ProjectsModule { }
