@@ -12,11 +12,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory and This will raise the json server on port 8000.
 
 ## Json Server
 
-Run `npm run backend` This will raise the server on port 8000.
+Run `npm run backend` This will raise the json server on port 8000.
 
 http://localhost:8000/login
 http://localhost:8000/notification
