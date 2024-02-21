@@ -8,7 +8,7 @@ import { IDashboardCard } from '../data/IDashboardCard';
   providedIn: 'root'
 })
 export class DashboardService {
-  private apiUrl = ' http://localhost:3000/dashboard_cards';
+  private apiUrl = ' http://localhost:8000/dashboard_cards';
 
   constructor(private http: HttpClient) { }
 

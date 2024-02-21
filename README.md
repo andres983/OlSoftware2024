@@ -14,6 +14,21 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Json Server
+
+Run `npm run backend` This will raise the server on port 8000.
+
+http://localhost:8000/login
+http://localhost:8000/notification
+http://localhost:8000/todos
+http://localhost:8000/dashboard_cards
+http://localhost:8000/cpu_report
+http://localhost:8000/report_commits
+http://localhost:8000/release_resume
+http://localhost:8000/projects
+http://localhost:8000/rols
+http://localhost:8000/user
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
